@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
     before_action :redirect_if_not_logged_in
     
+    def index 
+
+    end 
+
     def new 
         @book = Book.new
     end 
@@ -12,6 +16,10 @@ class BooksController < ApplicationController
         else   
             render :new
         end 
+    end 
+
+    def show 
+
     end 
   
 
