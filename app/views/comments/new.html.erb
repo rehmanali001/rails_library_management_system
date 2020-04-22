@@ -1,0 +1,21 @@
+<% if @comment.book %>
+<h1>New Comment for <%= @comment.book.title%>!</h1>
+<% else %>
+<h1>New Comment!</h1>
+<% end %>
+
+<%= form_for([@comment.book,@comment]) do |f|%>
+
+ <% if !@comment.book %>
+  <%= f.label :book, 'Book:' %>
+  <%= f.collection_select :book_id, Book.all, :id, :title %>
+<% else %>
+    <%= f.hidden_field :book_id %>
+<% end %>
+    <br><br>
+  <%= f.label :content, 'Content:' %>
+  <%= f.text_field :content, class: 'form-control', :style => 'width: 50%;' %>
+    <br>
+  <%= f.submit "Create Comment", class: 'btn btn-primary' %>
+
+<% end %>
