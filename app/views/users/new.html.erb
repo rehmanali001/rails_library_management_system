@@ -1,0 +1,14 @@
+<h1>Create a New User!</h1><br><br>
+
+<%= form_for @user do |f| %>
+    <%= f.label :username, 'Username:' %>
+    <%= f.text_field :username, class: 'form-control', :style => 'width: 50%;' %>
+    <br><br>
+    <%= f.label :email, 'Email:' %>
+    <%= f.email_field :email, required: true, class: 'form-control', :style => 'width: 50%;' %> 
+    <br><br>
+    <%= f.label :password, 'Password:' %>
+    <%= f.password_field :password, class: 'form-control', :style => 'width: 50%;' %>
+    <br><br>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
