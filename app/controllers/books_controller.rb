@@ -2,7 +2,7 @@ class BooksController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def index 
-        @books = Book.all
+
     end 
 
     def new 
@@ -19,6 +19,10 @@ class BooksController < ApplicationController
     end 
 
     def show 
+        @book = Book.find_by_id(params[:id])
+    end 
+
+    def edit 
 
     end 
   
