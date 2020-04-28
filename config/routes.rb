@@ -10,13 +10,14 @@ Rails.application.routes.draw do
 
   
   resources :genres, only: [:index, :show]
+  resources :books do
+    resources :comments
+  end 
   resources :comments
   resources :users do 
     resources :books, shallow: true
   end 
-  resources :books do
-    resources :comments
-  end 
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
