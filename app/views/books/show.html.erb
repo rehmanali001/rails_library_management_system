@@ -6,7 +6,7 @@
 
 <h4>Comments: </h4>
 <% @book.comments.each do |c| %>
-    <li><strong><%= c.user.username%></strong> says "<%= link_to c.content, comment_path(c)%>"</li>
+    <li><strong><%= c.user.username%></strong> says "<%= link_to c.content, book_comment_path(@book, c)%>"</li>
 <% end %>
 <br>
 <p><%= link_to 'See all comments', book_comments_path(@book) %></p>
