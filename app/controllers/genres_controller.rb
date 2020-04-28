@@ -1,7 +1,6 @@
 class GenresController < ApplicationController
     def index 
         @genres = Genre.all.includes(:books)
-
     end 
 
     def show 
@@ -9,6 +8,6 @@ class GenresController < ApplicationController
     end     
 
     def new 
-
+        @genre = Genre.new
     end 
 end

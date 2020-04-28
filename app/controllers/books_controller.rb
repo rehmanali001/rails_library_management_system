@@ -2,7 +2,7 @@ class BooksController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def index 
-
+        @books = Book.all
     end 
 
     def new 
@@ -26,6 +26,6 @@ class BooksController < ApplicationController
     private 
 
     def book_params
-        params.require(:book).permit(:title, :description)
+        params.require(:book).permit(:title, :description, :genre_id)
     end     
 end
