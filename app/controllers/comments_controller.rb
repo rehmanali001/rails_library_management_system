@@ -10,7 +10,11 @@ class CommentsController < ApplicationController
     end 
 
     def new 
-        @comment = Comment.new
+        if params[:book_id] && @book = Book.find_by_id(params[:book_id])
+            @comment = @book.comments.build
+        else  
+            @comment = Comment.new
+        end 
     end 
 
     def create 
