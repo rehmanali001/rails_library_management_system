@@ -2,23 +2,28 @@ class BooksController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def index 
-
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @books = @user.books 
+        else  
+            @books = Book.all
+        end 
     end 
 
     def new 
-        @book = Book.new
+         @book = Book.new
     end 
 
     def create
         @book = current_user.books.build(book_params)
         if @book.save
-            redirect_to books_path 
+            redirect_to book_path(@book)
         else   
             render :new
         end 
     end 
 
     def show 
+      #  binding.pry
         @book = Book.find_by_id(params[:id])
     end 
 
