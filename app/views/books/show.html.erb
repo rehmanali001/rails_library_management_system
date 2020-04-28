@@ -4,9 +4,10 @@
 
 <div><%= @book.description%></div><br>
 
-<p><%= link_to 'See all comments', book_comments_path %></p>
-
 <h4>Comments: </h4>
 <% @book.comments.each do |c| %>
     <li><strong><%= c.user.username%></strong> says "<%= link_to c.content, comment_path(c)%>"</li>
 <% end %>
+<br>
+<p><%= link_to 'See all comments', book_comments_path(@book) %></p>
+<p><%= link_to 'Add a new comment', new_book_comment_path(@book) %></p>
