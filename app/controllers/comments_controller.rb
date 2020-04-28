@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def index 
-        @comments = Comment.all
+        if params[:book_id] && @book = Book.find_by_id(params[:book_id])
+            @comments = @book.comments
+        else   
+            @comments = Comment.all
+        end
     end 
 
     def new 
