@@ -34,7 +34,9 @@ gem "bootstrap-sass", ">= 3.4.1"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-
+gem 'omniauth'
+gem 'dontenv-rails'
+gem 'omniauth-google-oauth2'
 
 gem 'bcrypt'
 gem 'pry' 
