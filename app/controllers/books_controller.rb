@@ -38,13 +38,19 @@ class BooksController < ApplicationController
     end 
 
     def update 
-        @book = Book.find_by_id(id: params[:id])
+        @book = Book.find_by(id: params[:id])
         redirect_to books_path if !@book || @book.user != current_user
         if @book.update(book_params)
             redirect_to book_path(@book)
         else 
             render :edit 
         end 
+    end 
+
+    def destroy
+        @book = Book.find(params[:id])
+        @book.destroy
+        redirect_to '/books'
     end 
   
 
