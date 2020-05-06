@@ -1,7 +1,12 @@
-<h2><%= @comment.content %> - <%= @comment.user.username %></h2>
+<h2>Book: <%= link_to @comment.book.title, book_path(@comment.book_id) %></h2>
+
+
+<h3><%= @comment.user.username %>'s comment: "<%= @comment.content %>"</h3>
+
 
 <% if @comment.user == current_user %>
-  <%= link_to "Edit Comment", edit_comment_path(@comment)%>
+  <div class="btn btn-primary">
+    <a href="<%= edit_comment_path(@comment) %>" style="color:white;">Edit comment</a>
+  </div>
 <% end %>
 
-<h4>Read the book description here: <%= link_to @comment.book.title, book_path(@comment.book_id) %></h4>
