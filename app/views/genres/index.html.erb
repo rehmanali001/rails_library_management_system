@@ -1,10 +1,11 @@
+<h1>List of Genres:</h1>
 <ul>
   <% @genres.each do |genre| %>
     <li>
-      <%= link_to genre.name, genre_path(genre) %>
+      <h2><%= link_to genre.name, genre_path(genre) %></h2>
       <ol>
         <% genre.books.each do |book| %>
-          <li><%= link_to book.title, book_path(book)  %></li>
+          <h4><li><%= link_to book.title, book_path(book)  %></li></h4>
         <% end  %>
       </ol>
     </li>
