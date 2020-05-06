@@ -1,0 +1,23 @@
+<h1>Edit <%= @book.title %></h1><br><br>
+
+<%= form_for @book do |f| %>
+
+  <%= f.label "Choose a genre:" %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
+
+
+    <p>Or create a new genre:
+  <%= f.fields_for :genre do |c|%>
+  <%= c.text_field :name%>
+  <% end %>
+  </p>
+
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title, class: 'form-control', :style => 'width: 50%;' %>
+    <br><br>
+    <%= f.label :description, 'Description:' %>
+    <%= f.text_area :description, class: 'form-control', :style => 'width: 50%;' %>
+    <br><br>
+  <%= f.submit class: 'btn btn-primary' %>
+
+<% end %>
