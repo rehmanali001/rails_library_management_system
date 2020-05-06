@@ -1,15 +1,14 @@
 <h1>Edit Comment!</h1>
-
+  <br>
 
 <%= form_for(@comment) do |f|%>
 
-  <%= f.label :book %>
-  <%= f.collection_select :book_id, Book.all, :id, :title %>
+  <%= f.label :book, "Book: " %>
+  <%= f.collection_select :book_id, Book.all, :id, :title, { class: 'form-control' } %>
+  <br><br>
+  <%= f.label :content, "Content: " %>
+  <%= f.text_field :content, class: 'form-control', :style => 'width: 50%;' %>
 
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-
-
-  <%= f.submit %>
-
+  <br>
+  <%= f.submit "Update Comment", class: 'btn btn-primary' %>
 <% end %>
