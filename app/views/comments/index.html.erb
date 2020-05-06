@@ -1,11 +1,11 @@
 <% if @book %>
-  <h1>Comments for <%= @book.title%></h1>
+  <h1>Comments for: <%= @book.title%></h1>
 <% else %>
   <h1>All Comments</h1>
 <% end %>
-
+<br>
 <ul>
 <% @comments.each do |c|%>
-  <li><%= c.user.username%> says "<%= c.content%>" about this book: <strong><%= link_to c.book.title, book_path(c.book_id) %></strong></li>
+  <h4><li><strong><%= c.user.username%></strong> commented: "<%= c.content%>" - <strong><%= link_to c.book.title, book_path(c.book_id) %></strong></li></h4>
 <% end %>
 </ul>
