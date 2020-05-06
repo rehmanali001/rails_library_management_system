@@ -1,13 +1,27 @@
 <h1><%= @book.title %></h1>
 
-<h2>Author: <%= @book.user.username %></h2><br>
+<h3><b>Author: </b><%= @book.user.username %></h3>
 
-<div><%= @book.description%></div><br>
+<h3><b>Genre: </b><%= @book.genre.try(:name)%></h3>
 
-<h4>Comments: </h4>
+<div><h3><b>Description: </b></h3><strong><%= @book.description%></strong></div><br>
+
+<h3><b>Comments: </b></h3>
 <% @book.comments.each do |c| %>
-    <li><strong><%= c.user.username%></strong> says "<%= link_to c.content, book_comment_path(@book, c)%>"</li>
+    <li><strong><%= c.user.username%></strong> commented: "<%= link_to c.content, book_comment_path(@book, c)%>"</li>
 <% end %>
 <br>
-<p><%= link_to 'See all comments', book_comments_path(@book) %></p>
-<p><%= link_to 'Add a new comment', new_book_comment_path(@book) %></p>
+
+<div class="btn btn-primary">
+    <% if @book.user == current_user %>
+        <a href="<%= edit_book_path(@book)%>" style="color:white;">Edit Book</a>
+    <% end %>
+</div>
+
+<div class="btn btn-primary">
+    <a href="<%= book_comments_path(@book) %>" style="color:white;">See all comments</a>
+</div>
+
+<div class="btn btn-primary">
+    <a href="<%= new_book_comment_path(@book) %>" style="color:white;">Add a new comment</a>
+</div>
