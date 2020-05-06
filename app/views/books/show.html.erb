@@ -8,7 +8,7 @@
 
 <h3><b>Comments: </b></h3>
 <% @book.comments.each do |c| %>
-    <li><strong><%= c.user.username%></strong> commented: "<%= link_to c.content, book_comment_path(@book, c)%>"</li>
+    <li>"<%= link_to c.content, book_comment_path(@book, c)%>" - <strong><%= c.user.username%></strong></li>
 <% end %>
 <br>
 
@@ -25,3 +25,5 @@
 <div class="btn btn-primary">
     <a href="<%= new_book_comment_path(@book) %>" style="color:white;">Add a new comment</a>
 </div>
+
+

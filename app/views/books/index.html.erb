@@ -2,6 +2,6 @@
 <br>
 <ul>
     <% @books.each do |b| %>
-        <li><%= link_to b.title, book_path(b) %> - <%= b.comments.size %> comments</li>
+        <h4><li><%= link_to b.title, book_path(b) %> - <%= b.comments.size %> comments</li></h4>
     <% end %>
 </ul>

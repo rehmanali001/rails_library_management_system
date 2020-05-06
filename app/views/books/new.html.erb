@@ -6,7 +6,7 @@
   <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
 
 
-    <p>Or create a new genre:
+    <p><b>Or create a new genre: </b>
   <%= f.fields_for :genre_attributes do |c|%>
     <%= c.text_field :name%>
   <% end %>

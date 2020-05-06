@@ -2,11 +2,11 @@
 
 <%= form_for @book do |f| %>
 
-  <%= f.label "Choose a genre:" %>
+  <%= f.label "Choose a genre: " %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
 
 
-    <p>Or create a new genre:
+  <p><strong>Or create a new genre: </strong>
   <%= f.fields_for :genre do |c|%>
   <%= c.text_field :name%>
   <% end %>
@@ -19,5 +19,8 @@
     <%= f.text_area :description, class: 'form-control', :style => 'width: 50%;' %>
     <br><br>
   <%= f.submit class: 'btn btn-primary' %>
+<% end %>
 
+<%= form_for @book, method: :delete do |f| %>
+  <%= f.submit "Delete", class: 'btn btn-primary'%>
 <% end %>
