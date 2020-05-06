@@ -35,7 +35,11 @@ class CommentsController < ApplicationController
     end 
 
     def update
-
+        if @comment.update(comment_params)
+            redirect_to comment_path(@comment)
+        else 
+            render :edit 
+        end 
     end 
 
     private 
