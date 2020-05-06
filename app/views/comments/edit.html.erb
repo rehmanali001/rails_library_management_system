@@ -1,0 +1,15 @@
+<h1>Edit Comment!</h1>
+
+
+<%= form_for(@comment) do |f|%>
+
+  <%= f.label :book %>
+  <%= f.collection_select :book_id, Book.all, :id, :title %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+
+  <%= f.submit %>
+
+<% end %>
