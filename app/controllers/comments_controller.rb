@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_comment, only: [:show, :edit, :update]
+    before_action :redirect_if_not_comment_author, only: [:edit, :update]
 
     def index 
         if params[:book_id] && @book = Book.find_by_id(params[:book_id])
@@ -35,6 +37,7 @@ class CommentsController < ApplicationController
     end 
 
     def update
+        @comment = Comment.find_by(id: params[:id])
         if @comment.update(comment_params)
             redirect_to comment_path(@comment)
         else 
@@ -47,4 +50,15 @@ class CommentsController < ApplicationController
     def comment_params
         params.require(:comment).permit(:content, :book_id)
     end 
+
+    def set_comment
+        @comment = Comment.find_by(id: params[:id])
+        if !@comment
+          redirect_to comments_path
+        end
+    end
+
+    def redirect_if_not_comment_author
+        redirect_to comments_path if @comment.user != current_user
+    end
 end
