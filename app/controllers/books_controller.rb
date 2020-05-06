@@ -3,9 +3,9 @@ class BooksController < ApplicationController
     
     def index 
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @books = @user.books 
+            @books = @user.books.alpha
         else  
-            @books = Book.all
+            @books = Book.alpha
         end 
     end 
 
@@ -23,7 +23,6 @@ class BooksController < ApplicationController
     end 
 
     def show 
-      #  binding.pry
         @book = Book.find_by_id(params[:id])
     end 
 
