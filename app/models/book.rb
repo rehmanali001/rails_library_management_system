@@ -1,13 +1,17 @@
 class Book < ApplicationRecord
   belongs_to :user
-  belongs_to :genre, optional: true
+  belongs_to :genre
   has_many :comments
   has_many :users, through: :comments  
+  validates :description, :title, presence: true
+
 
   scope :alpha, -> { order(:title) }
+  scope :most_comments, -> {left_joins(:comments).group('books.id').order('count(comments.book_id) desc')}
 
-  def category_attributes(attr)
-    self.category = Category.find_or_create_by(attr) if !attr[:name].blank?
+
+  def genre_attributes=(attr)
+    self.genre = Genre.find_or_create_by(attr) if !attr[:name].blank?
   end 
 
 end
