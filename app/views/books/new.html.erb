@@ -1,5 +1,8 @@
 <h1>Create a new Book</h1><br><br>
 
+<%= render partial: "layouts/errors", locals: {object: @book} %>
+
+
 <%= form_for @book do |f| %>
 
   <%= f.label "Choose a genre:" %>

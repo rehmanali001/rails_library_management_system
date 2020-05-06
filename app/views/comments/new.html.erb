@@ -4,6 +4,7 @@
   <h1>New Comment!</h1>
 <% end %>
 
+<%= render partial: "layouts/errors", locals: {object: @comment} %>
 
 
 <%= form_for([@comment.book,@comment]) do |f|%>
