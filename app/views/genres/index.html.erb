@@ -1,0 +1,12 @@
+<ul>
+  <% @genres.each do |genre| %>
+    <li>
+      <%= link_to genre.name, genre_path(genre) %>
+      <ol>
+        <% genre.books.each do |book| %>
+          <li><%= link_to book.title, book_path(book)  %></li>
+        <% end  %>
+      </ol>
+    </li>
+  <% end %>
+</ul>
