@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
-  
+  get '/auth/:provider/callback' => 'sessions#google'
+
   resources :genres, only: [:index, :show]
   resources :books do
     resources :comments
