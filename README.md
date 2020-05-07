@@ -1,6 +1,6 @@
 # Library Management System
 
-This MVC Rails web application creates and stores an author/users book. This app allows a user to sign up, login, and logout. Users are able to create, update, delete books as well as comment on other users' books and can view all books/comments in one place.
+This MVC Rails web application creates and stores an author/users' book. This app allows a user to sign up, login, and logout. Users are able to create, update, delete books as well as comment on other users' books and can view all books/comments in one place.
 
 # Installation
 
