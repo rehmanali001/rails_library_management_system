@@ -1,27 +1,28 @@
 # Library Management System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This MVC Rails web application creates and stores an author/users book. This app allows a user to sign up, login, and logout. Users are able to create, update, delete books as well as comment on other users' books and can view all books/comments in one place.
 
-Things you may want to cover:
+# Installation
 
-* Ruby version
+To use this app, clone down the repository in terminal:
 
-* System dependencies
+$ `git clone https://github.com/rehmanali001/rails_library_management_system.git`
 
-* Configuration
+Next, run Bundle Install
 
-* Database creation
+$ `bundle install`
 
-* Database initialization
+After the gems have been installed, run migrations
 
-* How to run the test suite
+$ `rake db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+After the migration, run the app:
 
-* Deployment instructions
+$ `rails s`
 
-* ...
+Run the local server host on the URL
+
+http://localhost:3000
 
 # Contributing
 
