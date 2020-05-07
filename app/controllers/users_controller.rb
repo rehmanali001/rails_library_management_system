@@ -24,6 +24,12 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
     end 
 
+    def destroy 
+        @user = User.find_by_id(params[:id]) 
+        @user.destroy 
+        redirect_to '/signup'
+    end 
+
     private 
 
     def user_params
