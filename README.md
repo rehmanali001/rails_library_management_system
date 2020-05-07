@@ -23,6 +23,10 @@ Things you may want to cover:
 
 * ...
 
+# Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/rehmanali001/rails_library_management_system. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
 # License
 
 Copyright 2020 Rehman Ali
