@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#google'
 
+
+  resources :long
+
   resources :genres, only: [:index, :show]
   resources :books do
     resources :comments

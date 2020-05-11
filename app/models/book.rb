@@ -14,4 +14,6 @@ class Book < ApplicationRecord
     self.genre = Genre.find_or_create_by(attr) if !attr[:name].blank?
   end 
 
+  scope :long_word, -> { order('length(title) desc') }
+
 end
