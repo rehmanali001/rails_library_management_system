@@ -10,8 +10,9 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#google'
 
-
-  resources :long
+ 
+  get '/longest_title' => 'books#long_title'
+  
 
   resources :genres, only: [:index, :show]
   resources :books do

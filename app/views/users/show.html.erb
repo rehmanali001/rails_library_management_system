@@ -1,5 +1,11 @@
 <h1>Welcome, <%= @user.username %></h1>
 <br>
+
+<% @books.each do |b| %>
+  <%= b.title %><br>
+<% end %>
+
+
 <%= form_for @user, method: :delete do |f| %>
   <%= f.submit "Delete", class: 'btn btn-primary'%>
 <% end %>

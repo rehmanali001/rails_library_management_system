@@ -9,6 +9,10 @@ class BooksController < ApplicationController
         end 
     end 
 
+    def long_title 
+        @books = Book.longest_title
+    end 
+
     def new 
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @book = @user.books.build
